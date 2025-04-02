@@ -2,8 +2,8 @@
   "name": "@bouzomgi/eslint-configs",
   "version": "1.0.20",
   "files": [
-    "frontend-tsconfig.js",
-    "backend-tsconfig.js"
+    "frontend-config.js",
+    "backend-config.js"
   ],
   "description": "ESLint configuration setup",
   "license": "ISC",
