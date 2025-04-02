@@ -1,6 +1,6 @@
 {
   "name": "@bouzomgi/eslint-configs",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "files": [
     "frontend-tsconfig.js",
     "backend-tsconfig.js"
