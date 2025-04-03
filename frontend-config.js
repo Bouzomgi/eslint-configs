@@ -9,7 +9,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "react-app",
     "react-app/jest",
-    "@bouzomgi/backend-ts-config",
+    "@bouzomgi/base/backend",
   ],
   rules: {
     /* STYLE */
