@@ -6,8 +6,8 @@
     "backend-config.js"
   ],
   "exports": {
-    "./frontend": "./frontend-config.js",
-    "./backend": "./backend-config.js"
+    "frontend": "./frontend-config.js",
+    "backend": "./backend-config.js"
   },
   "description": "ESLint configuration setup",
   "license": "ISC",
