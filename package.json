@@ -1,13 +1,13 @@
 {
-  "name": "@bouzomgi/eslint-configs",
-  "version": "1.0.22",
+  "name": "@bouzomgi/eslint-config-base",
+  "version": "1.0.0",
   "files": [
     "frontend-config.js",
     "backend-config.js"
   ],
   "exports": {
-    "frontend": "./frontend-config.js",
-    "backend": "./backend-config.js"
+    "./frontend": "./frontend-config.js",
+    "./backend": "./backend-config.js"
   },
   "description": "ESLint configuration setup",
   "license": "ISC",
