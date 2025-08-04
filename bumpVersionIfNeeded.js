@@ -31,6 +31,7 @@ function bumpVersionIfNeeded() {
 
   if (remoteHash !== localHash) {
     console.log("Code has changed, bumping version...");
+    execSync("git stash", { stdio: "inherit" });
     execSync("npm version patch", { stdio: "inherit" });
     return true;
   } else {
