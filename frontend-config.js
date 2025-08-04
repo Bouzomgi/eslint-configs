@@ -23,7 +23,6 @@ export default [
     rules: {
       /* STYLE */
       "no-console": "warn",
-      "no-magic-numbers": "warn",
 
       /* REACT */
       "react/boolean-prop-naming": "error",
