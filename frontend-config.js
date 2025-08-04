@@ -1,65 +1,74 @@
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-  },
-  extends: [
-    "plugin:react/jsx-runtime",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "react-app",
-    "react-app/jest",
-    "@bouzomgi/base/backend",
-  ],
-  rules: {
-    /* STYLE */
-    "no-console": 1,
-    "no-magic-numbers": 1,
+import react from "eslint-plugin-react";
+import reactHooks from "eslint-plugin-react-hooks";
+import prettierPlugin from "eslint-plugin-prettier";
 
-    /* REACT */
-    "react/boolean-prop-naming": 2,
-    "react/destructuring-assignment": [
-      2,
-      "always",
-      { destructureInSignature: "always" },
-    ],
-    "react/forbid-prop-types": 2,
-    "react/hook-use-state": 2,
-    "react/jsx-boolean-value": [2, "always"],
-    "react/jsx-closing-bracket-location": 2,
-    "react/jsx-closing-tag-location": 2,
-    "react/jsx-curly-brace-presence": [2, "never"],
-    "react/jsx-curly-spacing": [2, { when: "never" }],
-    "react/jsx-equals-spacing": [2, "never"],
-    "react/jsx-fragments": 2,
-    "react/jsx-handler-names": 2,
-    "react/jsx-indent-props": [2, 2],
-    "react/jsx-indent": 0,
-    "react/jsx-no-constructed-context-values": 1,
-    "react/jsx-no-script-url": 2,
-    "react/jsx-no-useless-fragment": 2,
-    "react/jsx-pascal-case": 2,
-    "react/jsx-props-no-multi-spaces": 2,
-    "react/jsx-tag-spacing": 2,
-    "react/no-danger": 2,
-    "react/no-did-mount-set-state": 2,
-    "react/no-did-update-set-state": 2,
-    "react/no-namespace": 2,
-    "react/no-this-in-sfc": 2,
-    "react/no-typos": 2,
-    "react/no-unused-class-component-methods": 2,
-    "react/no-unused-prop-types": 2,
-    "react/no-unused-state": 1,
-    "react/no-will-update-set-state": 2,
-    "react/prefer-es6-class": 2,
-    "react/prefer-exact-props": 2,
-    "react/prefer-read-only-props": 2,
-    "react/prefer-stateless-function": 2,
-    "react/react-in-jsx-scope": 0,
+export default [
+  {
+    files: ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+    languageOptions: {
+      globals: {
+        window: "readonly",
+        document: "readonly",
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      react,
+      "react-hooks": reactHooks,
+      prettier: prettierPlugin,
+    },
+    rules: {
+      /* STYLE */
+      "no-console": "warn",
+      "no-magic-numbers": "warn",
 
-    /* REACT-HOOKS */
-    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
-    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+      /* REACT */
+      "react/boolean-prop-naming": "error",
+      "react/destructuring-assignment": [
+        "error",
+        "always",
+        { destructureInSignature: "always" },
+      ],
+      "react/forbid-prop-types": "error",
+      "react/hook-use-state": "error",
+      "react/jsx-boolean-value": ["error", "always"],
+      "react/jsx-closing-bracket-location": "error",
+      "react/jsx-closing-tag-location": "error",
+      "react/jsx-curly-brace-presence": ["error", "never"],
+      "react/jsx-curly-spacing": ["error", { when: "never" }],
+      "react/jsx-equals-spacing": ["error", "never"],
+      "react/jsx-fragments": "error",
+      "react/jsx-handler-names": "error",
+      "react/jsx-indent-props": ["error", 2],
+      "react/jsx-indent": "off",
+      "react/jsx-no-constructed-context-values": "warn",
+      "react/jsx-no-script-url": "error",
+      "react/jsx-no-useless-fragment": "error",
+      "react/jsx-pascal-case": "error",
+      "react/jsx-props-no-multi-spaces": "error",
+      "react/jsx-tag-spacing": "error",
+      "react/no-danger": "error",
+      "react/no-did-mount-set-state": "error",
+      "react/no-did-update-set-state": "error",
+      "react/no-namespace": "error",
+      "react/no-this-in-sfc": "error",
+      "react/no-typos": "error",
+      "react/no-unused-class-component-methods": "error",
+      "react/no-unused-prop-types": "error",
+      "react/no-unused-state": "warn",
+      "react/no-will-update-set-state": "error",
+      "react/prefer-es6-class": "error",
+      "react/prefer-exact-props": "error",
+      "react/prefer-read-only-props": "error",
+      "react/prefer-stateless-function": "error",
+      "react/react-in-jsx-scope": "off",
+
+      /* REACT-HOOKS */
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "warn",
+    },
   },
-  plugins: ["prettier"],
-};
+];

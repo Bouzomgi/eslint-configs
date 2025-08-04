@@ -1,44 +1,68 @@
-module.exports = {
-  env: {
-    browser: true,
-    es2021: true,
-    "jest/globals": true, // Jest global variables
-  },
-  extends: [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-  ],
-  plugins: ["@typescript-eslint", "jest"],
-  rules: {
-    /* PROBLEMS */
-    "array-callback-return": 2,
-    "no-await-in-loop": 2,
-    "no-duplicate-imports": 2,
-    "no-self-compare": 2,
-    "no-template-curly-in-string": 2,
-    "no-unmodified-loop-condition": 2,
-    "no-unreachable-loop": 2,
+import typescript from "@typescript-eslint/eslint-plugin";
+import jestPlugin from "eslint-plugin-jest";
+import prettier from "eslint-plugin-prettier";
 
-    /* STYLE */
-    "arrow-body-style": [2, "as-needed"],
-    camelcase: 2,
-    "consistent-return": 2,
-    "func-style": [2, "declaration", { allowArrowFunctions: true }],
-    "no-array-constructor": 2,
-    "no-eval": 2,
-    "no-lonely-if": 2,
-    "no-return-await": 2,
-    "no-useless-return": 2,
-    "no-var": 2,
-    "prefer-arrow-callback": 2,
-    "prefer-const": 2,
-    "require-await": 2,
-    "spaced-comment": 2,
+export default [
+  {
+    files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
+    languageOptions: {
+      globals: {
+        window: "readonly",
+        document: "readonly",
+        // Jest globals
+        describe: "readonly",
+        test: "readonly",
+        expect: "readonly",
+        jest: "readonly",
+        beforeEach: "readonly",
+        afterEach: "readonly",
+        beforeAll: "readonly",
+        afterAll: "readonly",
+        it: "readonly",
+      },
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      "@typescript-eslint": typescript,
+      jest: jestPlugin,
+      prettier,
+    },
+    rules: {
+      /* PROBLEMS */
+      "array-callback-return": "error",
+      "no-await-in-loop": "error",
+      "no-duplicate-imports": "error",
+      "no-self-compare": "error",
+      "no-template-curly-in-string": "error",
+      "no-unmodified-loop-condition": "error",
+      "no-unreachable-loop": "error",
 
-    /* STANDARD-WITH-TYPESCRIPT */
-    "@typescript-eslint/no-require-imports": 2,
-    "@typescript-eslint/no-unused-vars": 1,
-    "@typescript-eslint/ban-ts-comment": 0,
+      /* STYLE */
+      "arrow-body-style": ["error", "as-needed"],
+      camelcase: "error",
+      "consistent-return": "error",
+      "func-style": ["error", "declaration", { allowArrowFunctions: true }],
+      "no-array-constructor": "error",
+      "no-eval": "error",
+      "no-lonely-if": "error",
+      "no-return-await": "error",
+      "no-useless-return": "error",
+      "no-var": "error",
+      "prefer-arrow-callback": "error",
+      "prefer-const": "error",
+      "require-await": "error",
+      "spaced-comment": "error",
+
+      /* STANDARD-WITH-TYPESCRIPT */
+      "@typescript-eslint/no-require-imports": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/ban-ts-comment": "off",
+
+      /* prettier recommended disables */
+      "prettier/prettier": "error",
+    },
   },
-};
+];
